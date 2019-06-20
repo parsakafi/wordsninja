@@ -1,6 +1,6 @@
 {
   "name": "wordsninja",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "Split a English sentence without any spaces nor accents, into words.",
   "main": "index.js",
   "author": "Parsa Kafi <parselearn@gmail.com> (http://parsa.ws)",

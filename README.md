@@ -27,7 +27,7 @@ WordsNinja.addWords('new word');
 ```
 Parameters
 
-- `word`: The word (string|array)
+- `word`: The word(s) (string|array)
 
 
 
@@ -39,10 +39,10 @@ let words = WordsNinja.splitSentence(string, {camelCaseSplitter, capitalizeFirst
 
 Parameters
 - `string`: The string for split
-	- `options`
-	  - `camelCaseSplitter`: Split by Camel Case, Default is `false` (optional)
-	  - `capitalizeFirstLetter`: Capitalize First Letter, Default is `false` (optional)
-	  - `joinWords`: Return join words as sentence, Default is `false` (optional)
+- `options`
+    - `camelCaseSplitter`: Split by Camel Case, Default is `false` (optional)
+    - `capitalizeFirstLetter`: Capitalize First Letter, Default is `false` (optional)
+    - `joinWords`: Return join words as sentence, Default is `false` (optional)
 
 Example
 

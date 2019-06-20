@@ -1,4 +1,4 @@
-# WordsNinja 🐱‍👤
+# WordsNinja
 Split a English sentence without any spaces nor accents, into words.
 
 ## Install

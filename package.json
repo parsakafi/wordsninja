@@ -1,0 +1,29 @@
+{
+  "name": "wordsninja",
+  "version": "1.0",
+  "description": "Split a English sentence without any spaces nor accents, into words.",
+  "main": "index.js",
+  "author": "Parsa Kafi <parselearn@gmail.com> (http://parsa.ws)",
+  "license": "MIT",
+  "scripts": {},
+  "keywords": [
+    "split",
+    "text",
+    "sentence",
+    "english",
+    "ninja",
+    "words",
+    "word",
+    "splitter",
+    "capitalize",
+    "camel case"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/parsakafi/wordsninja.git"
+  },
+  "bugs": {
+    "url": "https://github.com/parsakafi/wordsninja/issues"
+  },
+  "homepage": "https://github.com/parsakafi/wordsninja"
+}

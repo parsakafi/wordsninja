@@ -1,6 +1,8 @@
 # WordsNinja
 Split a English sentence without any spaces nor accents, into words.
 
+[![https://nodei.co/npm/wordsninja.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/wordsninja.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/wordsninja)
+
 ## Install
 ```bash
 npm install wordsninja --save

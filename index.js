@@ -1,12 +1,11 @@
 'use strict'
 
-const fs = require("fs");
-const path = require('path');
+const WORDS_JSON = require('./words-en.json');
 const splitRegex = new RegExp("[^a-zA-Z0-9']+", "g");
-const FILE_WORDS = path.join(__dirname, 'words-en.txt');
 let maxWordLen = 0;
 let wordCost = {};
 let maxCost = 9e999;
+
 
 /**
  * WordsNinja, Split your string text without space to english words
@@ -19,21 +18,16 @@ class WordsNinja {
      */
     loadDictionary() {
         return new Promise((resolve) => {
-            fs.readFile(FILE_WORDS, 'utf8', function (err, data) {
-                if (err)
-                    throw err;
+          let words = WORDS_JSON;
 
-                let words = data.split('\n');
-
-                words.forEach(function (word, index) {
-                    wordCost[word] = Math.log((index + 1) * Math.log(words.length));
-                    if (word.length > maxWordLen)
-                        maxWordLen = word.length;
-                    if (wordCost[word] < maxCost)
-                        maxCost = wordCost[word];
-                });
-                resolve(wordCost);
-            });
+          words.forEach(function (word, index) {
+            wordCost[word] = Math.log((index + 1) * Math.log(words.length));
+            if (word.length > maxWordLen)
+                maxWordLen = word.length;
+            if (wordCost[word] < maxCost)
+                maxCost = wordCost[word];
+          });
+          resolve(wordCost);
         });
     };
 
@@ -145,7 +139,7 @@ class WordsNinja {
      * Camel Case Splitter
      * Based on 'split-camelcase-to-words' package, https://www.npmjs.com/package/split-camelcase-to-words
      * @private
-     * @param {string} inputString 
+     * @param {string} inputString
      * @return {string} String
      */
     camelCaseSplitter(inputString) {

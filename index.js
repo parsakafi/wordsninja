@@ -1,11 +1,10 @@
 'use strict'
 
-const WORDS_JSON = require('./words-en.json');
+const jsonWords = require('./words-en.json');
 const splitRegex = new RegExp("[^a-zA-Z0-9']+", "g");
 let maxWordLen = 0;
 let wordCost = {};
 let maxCost = 9e999;
-
 
 /**
  * WordsNinja, Split your string text without space to english words
@@ -18,16 +17,16 @@ class WordsNinja {
      */
     loadDictionary() {
         return new Promise((resolve) => {
-          let words = WORDS_JSON;
+            let words = jsonWords;
 
-          words.forEach(function (word, index) {
-            wordCost[word] = Math.log((index + 1) * Math.log(words.length));
-            if (word.length > maxWordLen)
-                maxWordLen = word.length;
-            if (wordCost[word] < maxCost)
-                maxCost = wordCost[word];
-          });
-          resolve(wordCost);
+            words.forEach(function (word, index) {
+                wordCost[word] = Math.log((index + 1) * Math.log(words.length));
+                if (word.length > maxWordLen)
+                    maxWordLen = word.length;
+                if (wordCost[word] < maxCost)
+                    maxCost = wordCost[word];
+            });
+            resolve(wordCost);
         });
     };
 
@@ -39,7 +38,7 @@ class WordsNinja {
      * @param {boolean} options.joinWords - Return join words as sentence, Default false (optional)
      * @returns {Array|string} result - Split String
      */
-    splitSentence(string, { camelCaseSplitter, capitalizeFirstLetter, joinWords } = {}) {
+    splitSentence(string, {camelCaseSplitter, capitalizeFirstLetter, joinWords} = {}) {
         let list = [];
         let that = this;
         camelCaseSplitter = camelCaseSplitter || false;
@@ -54,10 +53,8 @@ class WordsNinja {
                 list.push(word);
             })
         })
-        if (joinWords)
-            return list.join(' ');
-        else
-            return list;
+
+        return joinWords ? list.join(' ') : list;
     }
 
     /**
@@ -90,14 +87,14 @@ class WordsNinja {
             let candidates = cost.slice(Math.max(0, i - maxWordLen), i).reverse();
             let minPair = [Number.MAX_SAFE_INTEGER, 0];
             candidates.forEach(function (c, k) {
-                let ccost;
+                let cCost;
                 if (wordCost[s.substring(i - k - 1, i).toLowerCase()]) {
-                    ccost = c + wordCost[s.substring(i - k - 1, i).toLowerCase()];
+                    cCost = c + wordCost[s.substring(i - k - 1, i).toLowerCase()];
                 } else {
-                    ccost = Number.MAX_SAFE_INTEGER;
+                    cCost = Number.MAX_SAFE_INTEGER;
                 }
-                if (ccost < minPair[0]) {
-                    minPair = [ccost, k + 1];
+                if (cCost < minPair[0]) {
+                    minPair = [cCost, k + 1];
                 }
             })
             return minPair;
@@ -112,13 +109,11 @@ class WordsNinja {
         while (i > 0) {
             let c = best_match(i)[0];
             let k = best_match(i)[1];
-            //if (c == cost[i])
-            //    console.log("Alert: " + c);
 
             let newToken = true;
-            if (s.slice(i - k, i) != "'") {
+            if (s.slice(i - k, i) !== "'") {
                 if (out.length > 0) {
-                    if (out[-1] == "'s" || (Number.isInteger(s[i - 1]) && Number.isInteger(out[-1][0]))) {
+                    if (out[-1] === "'s" || (Number.isInteger(s[i - 1]) && Number.isInteger(out[-1][0]))) {
                         out[-1] = s.slice(i - k, i) + out[-1];
                         newToken = false;
                     }
@@ -149,7 +144,7 @@ class WordsNinja {
 
         let splitStringsArray = [];
         arrayOfStrings.forEach(tempString => {
-            if (tempString != '') {
+            if (tempString !== '') {
                 let splitWords = tempString.split(/(?=[A-Z])/).join(" ");
                 splitStringsArray.push(splitWords);
             }

@@ -119,7 +119,7 @@ Parsa You Need To Learn From Your Mistakes
 ## Contributors
 
 <a href = "https://github.com/parsakafi/wordsninja/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo=parsakafi/wordsninja"/>
+  <img src = "https://contrib.rocks/image?repo=parsakafi/wordsninja" alt="Contributors"/>
 </a>
 
 ## Acknowledgement

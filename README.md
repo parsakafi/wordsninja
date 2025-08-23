@@ -1,5 +1,5 @@
 # WordsNinja
-Split a English sentence without any spaces nor accents, into words.
+Split an English sentence that lacks spaces and accents into separate words.
 
 [![https://nodei.co/npm/wordsninja.png?downloads=true&downloadRank=true&stars=true](https://nodei.co/npm/wordsninja.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/wordsninja)
 
@@ -71,9 +71,9 @@ Result
 let string = 'youneedtolearnfromyourmistakes';
 let words = WordsNinja.splitSentence(string,
     {
-        camelCaseSplitter: true,  // Frist camel case spliting
+        camelCaseSplitter: true,  // Camel case splitting
         capitalizeFirstLetter: true,  // Capitalize first letter of result
-        joinWords: true  // Join words
+        joinWords: true  // Join words with spaces
     }
 );
 console.log(words);
@@ -103,7 +103,7 @@ WordsNinja.addWords('Parsa');
 let words = WordsNinja.splitSentence(string,
     {
         capitalizeFirstLetter: true,  // Capitalize first letter of result
-        joinWords: true  // Join words
+        joinWords: true  // Join words with spaces
     }
 );
 console.log(words);

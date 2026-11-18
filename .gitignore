@@ -1,1 +1,7 @@
+node_modules/
+coverage/
+*.tgz
+*.log
+.DS_Store
 .idea
+.vscode

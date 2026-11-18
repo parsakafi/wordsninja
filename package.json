@@ -1,11 +1,43 @@
 {
   "name": "wordsninja",
-  "version": "1.1.0",
-  "description": "Split a English sentence without any spaces nor accents, into words.",
+  "version": "2.0.0",
+  "description": "Split an English string that has no spaces into words. Zero dependencies, offset-aware, with custom dictionaries and TypeScript types.",
   "main": "index.js",
-  "author": "Parsa Kafi <parselearn@gmail.com> (https://parsa.ws)",
-  "license": "MIT",
-  "scripts": {},
+  "module": "index.mjs",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./index.d.mts",
+        "default": "./index.mjs"
+      },
+      "require": {
+        "types": "./index.d.ts",
+        "default": "./index.js"
+      },
+      "default": "./index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "index.mjs",
+    "index.d.ts",
+    "index.d.mts",
+    "words-en.json",
+    "NOTICE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/wordsninja.test.js test/robustness.test.js",
+    "test:watch": "node --test --watch test/wordsninja.test.js test/robustness.test.js",
+    "build:dictionary": "node scripts/build-dictionary.js",
+    "bench": "node bench/bench.js",
+    "prepublishOnly": "npm test"
+  },
   "keywords": [
     "split",
     "text",
@@ -15,9 +47,19 @@
     "words",
     "word",
     "splitter",
+    "tokenizer",
+    "tokenize",
+    "segmentation",
+    "text-segmentation",
+    "word-segmentation",
+    "wordninja",
+    "no-spaces",
     "capitalize",
-    "camel case"
+    "camelcase",
+    "camel-case"
   ],
+  "author": "Parsa Kafi <parselearn@gmail.com> (https://parsa.ws)",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/parsakafi/wordsninja.git"

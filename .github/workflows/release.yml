@@ -1,0 +1,45 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  # npm trusted publishing (OIDC) + provenance.
+  id-token: write
+
+jobs:
+  publish:
+    name: Publish to npm
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      - name: Check that the tag matches package.json
+        run: |
+          node -e "
+            const { version } = require('./package.json');
+            if ('v' + version !== process.env.GITHUB_REF_NAME) {
+              console.error('Tag ' + process.env.GITHUB_REF_NAME + ' does not match version ' + version);
+              process.exit(1);
+            }
+          "
+
+      - name: Run tests
+        run: npm test
+
+      - name: Upgrade npm (trusted publishing requires npm 11.5+)
+        run: npm install -g npm@11
+
+      - name: Publish
+        # Requires npm trusted publishing to be configured for this repository
+        # on npmjs.com. Falls back to NODE_AUTH_TOKEN if you prefer a secret.
+        run: npm publish --provenance --access public

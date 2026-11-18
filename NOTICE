@@ -1,0 +1,21 @@
+WordsNinja
+Copyright (c) Parsa Kafi
+
+The bundled English word list in `words-en.json` is derived from the word list
+shipped with the `wordninja` Python package:
+
+    https://pypi.org/project/wordninja/
+    https://github.com/keredson/wordninja
+
+`wordninja` is distributed under the MIT License. The list has been converted
+from a newline separated text file to JSON and de-duplicated; the words and
+their frequency order are unchanged.
+
+The segmentation algorithm follows the approach described in:
+
+    https://stackoverflow.com/questions/8870261/how-to-split-text-without-spaces-into-list-of-words
+
+The camel case splitting logic was originally inspired by the
+`split-camelcase-to-words` package:
+
+    https://www.npmjs.com/package/split-camelcase-to-words

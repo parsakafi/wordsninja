@@ -31,3 +31,18 @@ jobs:
 
       - name: Verify the published artifact
         run: npm pack --dry-run
+
+  accuracy:
+    name: Segmentation accuracy
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Check accuracy against the corpora
+        run: node bench/accuracy.js --min-exact=87 --min-prose-exact=78

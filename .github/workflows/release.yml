@@ -36,6 +36,9 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Check accuracy against the corpora
+        run: node bench/accuracy.js --min-exact=87 --min-prose-exact=78
+
       - name: Upgrade npm (trusted publishing requires npm 11.5+)
         run: npm install -g npm@11
 

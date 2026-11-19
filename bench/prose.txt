@@ -1,0 +1,625 @@
+# Held-out prose corpus for bench/accuracy.js.
+#
+# 100 sentences from each of six public-domain novels, transcribed by Standard
+# Ebooks (CC0): Alice's Adventures in Wonderland (1865), Pride and Prejudice
+# (1813), Frankenstein (1818), Dracula (1897), The Call of the Wild (1903) and
+# The Age of Innocence (1920).
+#
+# Sentences were sampled evenly from the eligible sentences in each book: 4-28
+# words, every word in words-en.json so a perfect split is possible, no digits,
+# no accented characters and no single letters other than `a` and `i`.
+# Quotation marks, commas and semicolons were treated as spaces and the final
+# punctuation was dropped.
+#
+# This file guards against tuning the cost model to bench/corpus.txt. Do not
+# rewrite its sentences to make a change pass.
+I shall be late
+Dinah was the cat
+I think I could if I only know how to begin
+Why there's hardly enough of me left to make one respectable person
+You ought to be ashamed of yourself said Alice a great girl like you she might well say this to go on crying in this way
+But if I'm not the same the next question is Who in the world am I
+As she said these words her foot slipped and in another moment splash
+For with all her knowledge of history Alice had no very clear notion how long ago anything had happened
+So she called softly after it Mouse dear
+Found it the Mouse replied rather crossly of course you know what it means
+Why said the Dodo the best way to explain it is to do it
+Of course the Dodo replied very gravely
+I beg your pardon said Alice very humbly you had got to the fifth bend I think
+Alice called after it and the others all joined in chorus Yes please do
+And who is Dinah if I might venture to ask the question
+I wish I hadn't mentioned Dinah
+I suppose Dinah'll be sending me on messages next
+I do hope it'll make me grow large again for really I'm quite tired of being such a tiny little thing
+Alice heard it say to itself Then I'll go round and get in at the window
+Why it fills the whole window
+I'm sure I don't want to stay in here any longer
+There was a dead silence instantly and Alice thought to herself I wonder what they will do next
+The great question certainly was what
+I've something important to say
+Repeat you are old Father William said the Caterpillar
+The Caterpillar was the first to speak
+But I'm not used to it
+However at last she stretched her arms round it as far as they would go and broke off a bit of the edge with each hand
+She was moving them about as she spoke but no result seemed to follow except a little shaking among the distant green leaves
+Why I haven't had a wink of sleep these three weeks
+I don't believe it said the Pigeon but if they do why then they're a kind of serpent that's all I can say
+How am I to get in
+I shall sit here he said on and off for days and days
+Even the Duchess sneezed occasionally and as for the baby it was sneezing and howling alternately without a moment's pause
+If everybody minded their own business the Duchess said in a hoarse growl the world would go round a deal faster than it does
+She said the last words out loud and the little thing grunted in reply it had left off sneezing by this time
+The Cat only grinned when it saw Alice
+Alice felt that this could not be denied so she tried another question
+You must be said the Cat or you wouldn't have come here
+Do you play croquet with the Queen today
+I thought it would said the Cat and vanished again
+There's plenty of room
+I didn't know it was your table said Alice it's laid for a great many more than three
+Not the same thing a bit
+Yes but some crumbs must have got in as well the Hatter grumbled you shouldn't have put it in with the bread knife
+Alice felt dreadfully puzzled
+Nor I said the March Hare
+Now if you only kept on good terms with him he'd do almost anything you liked with the clock
+I've heard something like it said Alice
+Yes that's it said the Hatter with a sigh it's always teatime and we've no time to wash the things between whiles
+I'm afraid I don't know one said Alice rather alarmed at the proposal
+They lived on treacle said the Dormouse after thinking a minute or two
+Who's making personal remarks now
+What did they draw
+At any rate I'll never go there again
+On which Seven looked up and said That's right Five
+When the procession came opposite to Alice they all stopped and looked at her and the Queen said severely Who is this
+The Knave did so very carefully with one foot
+Can you play croquet
+How are you getting on
+I'd rather not the Cat remarked
+I'll fetch the executioner myself said the King eagerly and he hurried off
+She's in prison the Queen said to the executioner fetch her here
+Everything's got a moral if only you can find it
+He might bite Alice cautiously replied not feeling at all anxious to have the experiment tried
+Oh don't talk about trouble
+A fine day your Majesty
+As they walked off together Alice heard the King say in a low voice to the company generally You are all pardoned
+It's all her fancy that they never executes nobody you know
+So they sat down and nobody spoke for some minutes
+I never said I didn't
+You know what to beautify is I suppose
+So he did so he did said the Gryphon sighing in his turn and both creatures hid their faces in their paws
+Of course it was said the Mock Turtle
+Turn a somersault in the sea
+Will you walk a little faster
+So they got thrown out to sea
+I never thought about it said Alice
+Boots and shoes under the sea the Gryphon went on in a deep voice are done with a whiting
+And the Gryphon added Come let's hear some of your adventures
+Tell her to begin
+I should like to have it explained said the Mock Turtle
+It's by far the most confusing thing I ever heard
+That's the judge she said to herself because of his great wig
+A nice muddle their slates'll be in before the trial's over
+Call the first witness said the King and the White Rabbit blew three blasts on the trumpet and called out First witness
+Fifteenth said the March Hare
+I wish you wouldn't squeeze so said the Dormouse who was sitting next to her
+The twinkling of the what
+I'm a poor man your Majesty he began
+I can't go no lower said the Hatter I'm on the floor as it is
+The next witness was the Duchess's cook
+Off with his whiskers
+Alice could see this as she was near enough to look over their slates but it doesn't matter a bit she thought to herself
+Well I shan't go at any rate said Alice besides that's not a regular rule you invented it just now
+It isn't directed at all said the White Rabbit in fact there's nothing written on the outside
+If you didn't sign it said the King that only makes the matter worse
+The White Rabbit put on his spectacles
+Don't let him know she liked them best For this must ever be A secret kept from all the rest Between yourself and me
+There was a dead silence
+
+# Pride and Prejudice â€" Jane Austen (1813)
+It is a truth universally acknowledged that a single man in possession of a good fortune must be in want of a wife
+But you are always giving her the preference
+I do not cough for my own amusement replied Kitty fretfully
+Sir William had been delighted with him
+Mr Bingley followed his advice
+No thanks to his gallantry for that
+I do not believe a word of it my dear
+If the dispositions of the parties are ever so well known to each other or ever so similar beforehand it does not advance their felicity in the least
+That is exactly the question which I expected you to ask
+Her hopes were answered Jane had not been gone long before it rained hard
+When the clock struck three Elizabeth felt that she must go and very unwillingly said so
+Do you prefer reading to cards
+The word is applied to many a woman who deserves it no otherwise than by netting a purse or covering a screen
+My sister I am sure will not hear of her removal
+Certainly my dear nobody said there were but as to not meeting with many people in this neighbourhood I believe there are few neighbourhoods larger
+Letters of business too
+A regard for the requester would often make one readily yield to a request without waiting for arguments to reason one into it
+This walk is not wide enough for our party
+I am perfectly convinced by it that Mr Darcy has no defect
+Why indeed he does seem to have had some filial scruples on that head as you will hear
+I do not remember her name among the ladies at court
+I wonder said he at the next opportunity of speaking whether he is likely to be in this country much longer
+While I can have my mornings to myself said she it is enough
+I am sorry you think so but if that be the case there can at least be no want of subject
+Elizabeth listened with delight to the happy though modest hopes which Jane entertained of Bingley's regard and said all in her power to heighten her confidence in it
+There was no arguing upon such a project
+Really Mr Collins cried Elizabeth with some warmth you puzzle me exceedingly
+Yes or I will never see her again
+It is only evident that Miss Bingley does not mean he should
+The idea of his returning no more Elizabeth treated with the utmost contempt
+The very mention of anything concerning the match threw her into an agony of ill humour and wherever she went she was sure of hearing it talked of
+I feel as if I had never done you justice or loved you as you deserve
+Yes in conjunction with his friend
+They had all been very ill used since she last saw her sister
+But does not Jane correspond with the sister
+Elizabeth soon heard from her friend and their correspondence was as regular and frequent as it had ever been that it should be equally unreserved was impossible
+This letter gave Elizabeth some pain but her spirits returned as she considered that Jane would no longer be duped by the sister at least
+Well cried Elizabeth have it as you choose
+And is this all
+Her air was not conciliating nor was her manner of receiving them such as to make her visitors forget their inferior rank
+The party then gathered round the fire to hear Lady Catherine determine what weather they were to have on the morrow
+I assure you Madam he replied that she does not need such advice
+She has a very good notion of fingering though her taste is not equal to Anne's
+In her kind schemes for Elizabeth she sometimes planned her marrying Colonel Fitzwilliam
+I never heard any harm of her and I dare say she is one of the most tractable creatures in the world
+In vain have I struggled
+And this cried Darcy as he walked with quick steps across the room is your opinion of me
+She could think only of her letter
+They were hopeless of remedy
+You thought the waiter must not hear as if he cared
+The comfort to her of the regiment's approaching removal was indeed beyond expression
+And yet I meant to be uncommonly clever in taking so decided a dislike to him without any reason
+She still cherished a very tender affection for Bingley
+I thought I should have broke my heart
+Having been frequently in company with him since her return agitation was pretty well over the agitations of former partiality entirely so
+But surely said she I may enter his county with impunity and rob it of a few petrified spars without his perceiving me
+But Lizzy you can tell us whether it is like or not
+Some people call him proud but I am sure I never saw anything of it
+It was consoling that he should know she had some relations for whom there was no need to blush
+But he is a liberal master I suppose and that in the eye of a servant comprehends every virtue
+Mr Gardiner left them soon after breakfast
+I am only distressed by some dreadful news which I have just received from Longbourn
+Upon my word said Mrs Gardiner I begin to be of your uncle's opinion
+Can she be ignorant of what you and Jane seem so well to understand
+Colonel Forster did own that he had often suspected some partiality especially on Lydia's side but nothing to give him any alarm
+I never saw anyone so shocked
+Every day at Longbourn was now a day of anxiety but the most anxious part of each was when the post was expected
+Do you suppose them to be in London
+I shall write again as soon as anything more is determined on
+Though our kind uncle has done something towards clearing him I cannot believe that ten thousand pounds or anything like it has been advanced
+And she was only sixteen last June
+I will not encourage the impudence of either by receiving them at Longbourn
+Lydia was Lydia still untamed unabashed wild noisy and fearless
+Lydia was exceedingly fond of him
+Mr Darcy had been at her sister's wedding
+I hope she will turn out well
+It is no such thing
+He knows where we live
+Could I expect it to be otherwise
+But her mind was so busily engaged that she did not always know when she was silent
+She looked forward to their entrance as the point on which all her chance of pleasure for the evening must depend
+Forgive me and if you persist in indifference do not make me your confidante
+Bingley of course returned with him to dinner and in the evening Mrs Bennet's invention was again at work to get everybody away from him and her daughter
+Then addressing her daughter Oh
+They both set off and the conjectures of the remaining three continued though with little satisfaction till the door was thrown open and their visitor entered
+A report of a most alarming nature reached me two days ago
+It was the favourite wish of his mother as well as of hers
+They are destined for each other by the voice of every member of their respective houses and what is to divide them
+You can now have nothing farther to say she resentfully answered
+She is a very fine looking woman
+Are you not diverted
+My affections and wishes are unchanged but one word from you will silence me on this subject forever
+You must learn some of my philosophy
+I must ask whether you were surprised
+My sole dependence was on you and I am sure nobody else will believe me if you do not
+Another entreaty that she would be serious however produced the desired effect and she soon satisfied Jane by her solemn assurances of attachment
+How earnestly did she then wish that her former opinions had been more reasonable her expressions more moderate
+I shall offer to pay him tomorrow he will rant and storm about his love for you and there will be an end of the matter
+How unlucky that you should have a reasonable answer to give and that I should be so reasonable as to admit it
+I must trouble you once more for congratulations
+
+# Frankenstein â€" Mary Shelley (1818)
+He was respected by all who knew him for his integrity and indefatigable attention to public business
+There was a considerable difference between the ages of my parents but this circumstance seemed to unite them only closer in bonds of devoted affection
+When I mingled with other families I distinctly discerned how peculiarly fortunate my lot was and gratitude assisted the development of filial love
+The untaught peasant beheld the elements around him and was acquainted with their practical uses
+It seemed to me as if nothing would or could ever be known
+His father was a narrow minded trader and saw idleness and ruin in the aspirations and ambition of his son
+My dear sir you must begin your studies entirely anew
+I closed not my eyes that night
+His gentleness was never tinged by dogmatism and his instructions were given with an air of frankness and good nature that banished every idea of pedantry
+The materials at present within my command hardly appeared adequate to so arduous an undertaking but I doubted not that I should ultimately succeed
+I passed the night wretchedly
+My dear Victor cried he what for God's sake is the matter
+I feel the greatest remorse for the disappointment of which I have been the occasion but you will forgive me
+She died on the first approach of cold weather at the beginning of this last winter
+Henry saw this and had removed all my apparatus from my view
+But that would be a cruel kindness and I dare not do it
+When she again lived it was only to weep and sigh
+What do you intend to do
+I remained two days at Lausanne in this painful state of mind
+During this short voyage I saw the lightnings playing on the summit of Mont Blanc in the most beautiful figures
+I do not know what you mean replied my brother in accents of wonder but to us the discovery we have made completes our misery
+She is to be tried today and I hope I sincerely hope that she will be acquitted
+How kind and generous you are
+As the trial had proceeded her countenance had altered
+She herself wept as Elizabeth spoke but she did not answer
+But she has confessed
+Rise my poor girl said Elizabeth why do you kneel if you are innocent
+Who dared talk of that
+Justine assumed an air of cheerfulness while she with difficulty repressed her bitter tears
+But that could not be
+I could not consent to the death of any human being but certainly I should have thought such a creature unfit to remain in the society of men
+It had then filled me with a sublime ecstasy that gave wings to the soul and allowed it to soar from the obscure world to light and joy
+Their icy and glittering peaks shone in the sunlight over the clouds
+I entreat you to hear me before you give vent to your hatred on my devoted head
+You my creator abhor me what hope can I gather from your fellow creatures who owe me nothing
+Yet I ask you not to spare me listen to me and then if you can and if you will destroy the work of your hands
+It is with considerable difficulty that I remember the original era of my being all the events of that period appear confused and indistinct
+No distinct ideas occupied my mind all was confused
+The wet wood which I had placed near the heat dried and itself became inflamed
+Then overcome by fatigue I lay down among some straw and fell asleep
+Through this crevice a small room was visible whitewashed and clean but very bare of furniture
+What chiefly struck me was the gentle manners of these people and I longed to join them but dared not
+This trait of kindness moved me sensibly
+It was not thus with Felix
+I looked upon them as superior beings who would be the arbiters of my future destiny
+She did not appear to understand him but smiled
+While I listened to the instructions which Felix bestowed upon the Arabian the strange system of human society was explained to me
+The question again recurred to be answered only with groans
+The Turk allowed this intimacy to take place and encouraged the hopes of the youthful lovers while in his heart he had formed far other plans
+She fell however into good hands
+What was my destination
+Another circumstance strengthened and confirmed these feelings
+I postponed this attempt for some months longer for the importance attached to its success inspired me with a dread lest I should fail
+I revolved many projects but that on which I finally fixed was to enter the dwelling when the blind old man should be alone
+I am full of fears for if I fail there I am an outcast in the world forever
+I could have torn him limb from limb as the lion rends the antelope
+I crept into my hovel and remained in silent expectation of the accustomed hour when the family arose
+My protectors had departed and had broken the only link that held me to the world
+I generally rested during the day and travelled only when I was secured by night from the view of man
+But my toils now drew near a close and in two months from this time I reached the environs of Geneva
+This being you must create
+Yet mine shall not be the submission of abject slavery
+How can you who long for the love and sympathy of man persevere in this exile
+Night was far advanced when I came to the halfway resting place and seated myself beside the fountain
+I love my cousin tenderly and sincerely
+Or so my fond fancy imaged some accident might meanwhile occur to destroy him and put an end to my slavery forever
+During this voyage we passed many willowy islands and saw several beautiful towns
+London was our present point of rest we determined to remain several months in this wonderful and celebrated city
+As we entered this city our minds were filled with the remembrance of the events that had been transacted there more than a century and a half before
+For my own part I was not sorry
+It was a place fitted for such a work being hardly more than a rock whose high sides were continually beaten upon by the waves
+Had I right for my own benefit to inflict this curse upon everlasting generations
+I am firm and your words will only exasperate my rage
+The next morning at daybreak I summoned sufficient courage and unlocked the door of my laboratory
+How mutable are our feelings and how strange is that clinging love we have of life even in the excess of misery
+While this strange dialogue continued I perceived the crowd rapidly increase
+He had apparently been strangled for there was no sign of any violence except the black mark of fingers on his neck
+I thank you but all that you mention is nothing to me on the whole earth there is no comfort which I am capable of receiving
+But the appearance of my father was to me like that of my good angel and I gradually recovered my health
+The voyage came to an end
+Upon this occasion my father said with an expression of unbounded wonder My dearest Victor what infatuation is this
+Yet I would die to make her happy
+When reason returned she would remonstrate and endeavour to inspire me with resignation
+In the meantime I took every precaution to defend my person in case the fiend should openly attack me
+What is it you fear
+I hired men to row and took an oar myself for I had always experienced relief from mental torment in bodily exercise
+I thank you replied I listen therefore to the deposition that I have to make
+My first resolution was to quit Geneva forever my country which when I was happy and beloved was dear to me now in my adversity became hateful
+Let the cursed and hellish monster drink deep of agony let him feel the despair that now torments me
+Follow me I seek the everlasting ices of the north where you will feel the misery of cold and frost to which I am impassive
+Despair had indeed almost secured her prey and I should soon have sunk beneath this misery
+Our conversations are not always confined to his own history and misfortunes
+I would reconcile him to life but he repulses the idea
+These feelings are transitory each day of expectation delayed fills them with fear and I almost dread a mutiny caused by this despair
+Return as heroes who have fought and conquered and who know not what it is to turn their backs on the foe
+It was long before he was restored and I often thought that life was entirely extinct
+His voice became fainter as he spoke and at length exhausted by his effort he sunk into silence
+Over him hung a form which I cannot find words to describe gigantic in stature yet uncouth and distorted in its proportions
+For while I destroyed his hopes I did not satisfy my own desires
+Neither yours nor any man's death is needed to consummate the series of my being and accomplish that which must be done but it requires my own
+
+# Dracula â€" Bram Stoker (1897)
+Here I stopped for the night at the Hotel Royale
+I know that but do you know what day it is
+The baying of the wolves sounded nearer and nearer as though they were closing round on us from every side
+He is discreet and silent and has grown into manhood in my service
+Then we drifted into other matters
+So I pulled the curtains again and have written of this day
+It is strange that as yet I have not seen the Count eat or drink
+As he spoke he handed me three sheets of notepaper and three envelopes
+He is young and strong there are kisses for us all
+I had been at the window somewhat less than half an hour when I saw something coming out of the Count's window
+Before many minutes had passed a pack of them poured like a pent up dam when liberated through the wide entrance into the courtyard
+At one corner of the room was a heavy door
+In silence we returned to the library and after a minute or two I went to my own room
+I knew now well enough where to find the monster I sought
+Now I can hear the heavy feet tramping again along the hall with many other idle feet coming behind them
+He is an excellent parti being handsome well off and of good birth
+I am afraid to stop or I should tear up the letter and I don't want to stop for I do so want to tell you all
+Between the two piers there is a narrow opening into the harbour which then suddenly widens
+The sheep and lambs are bleating in the fields away behind me and there is a clatter of a donkey's hoofs up the paved road below
+She is steered mighty strangely for she doesn't mind the hand on the wheel changes about with every puff of wind
+Could not account for it
+Pray do not take us as exceeding the bounds of business courtesy in pressing you in all ways to use the utmost expedition
+The combination is a dreadful one
+He is safe now at any rate
+I must find out later on
+Were fortune other then it were bad for those who have trusted for I come to my friend when he call me to aid those he holds dear
+And so now Art you know all I know
+She assented readily so readily that I saw again the hand of Nature fighting for life
+You can do more than any that live and your courage is your best help
+He must then go home and rest sleep much and eat much that he may be recruited of what he has so given to his love
+What on earth do you mean
+Her lips were slightly parted and her breast rose and fell with the regularity of a pendulum
+There must be none
+Aha my pretty miss that bring the so nice nose all straight again
+Lucy's state this morning is due in part to me
+Again the operation again the narcotic again some return of colour to the ashy cheeks and the regular breathing of healthy sleep
+Are you in the business yourself
+The wind rushed in through the broken window and the door slammed to
+If there be no way open to get in we must make one
+I was stern with them however and would not let them talk
+What's the matter with me anyhow
+Forget it for the present
+When the day came its searching light showed the ravages in poor Lucy's strength
+Tell me all about it dear tell me all about everything for there is nothing which interests you which will not be dear to me
+I took him by the hand and raised him up
+It is the end
+He restored the sheet to its place and we came away
+You know that Mrs Westenra left you all her property
+They were both buried today
+I can tell you I think Dr Van Helsing all about it
+A shock and after brain fever so soon
+Believe me Your faithful and grateful friend Mina Harker
+I do not know what to think and I have no data on which to found a conjecture
+It is worse far far worse
+It is more late than I thought
+I was chilled and unnerved and angry with the Professor for taking me on such an errand and with myself for coming
+I said to him
+That's frank anyhow broke in Quincey
+I go no further than to say that she might be Un Dead
+Van Helsing forced back the leaden flange and we all looked in and recoiled
+My friend Arthur you have had a sore trial but after when you look back you will see how it was necessary
+The Thing in the coffin writhed and a hideous bloodcurdling screech came from the opened red lips
+The Professor was delighted
+As yet I have not had the chance of looking at the papers which Van Helsing left with me though they lie open before me
+As they saw the parcel he realised my meaning
+He turned as he heard my footsteps
+And her so fine husband
+And now for you Madam Mina this night is the end until all be well
+Is it possible that I have erred in my supposition
+With a little trouble we found the key on the bunch and opened the door
+We closed the outer door and barred and locked it and bringing the dogs with us began our search of the house
+Van Helsing smiled in turn
+I agree with you with all my heart I answered earnestly for I did not want him to weaken in this matter
+Poor dear I've no doubt it frets her to be kept in the dark and it may make her doubly anxious about me and the others
+If so time was precious for now that he had achieved a certain amount of distribution he could by choosing his own time complete the task unobserved
+We got into the other answered Lord Godalming quickly
+He did not reply for a moment but looked all round him and up and down as though he expected to find some inspiration for an answer
+He was sleeping soundly and his heart rose and fell with regular respiration
+The poor man's breathing came in uncertain gasps
+It is unusual to break into a lady's room
+A little he answered
+Now we wish to get into the house but we have no key is it not so
+Breakfast is ready and we must all eat that we may be strong
+Quincey and I will find a locksmith
+This he finally handed to Lord Godalming who took out his purse and gave him something
+We found both places six boxes in each and we destroyed them all
+Van Helsing beckoned to us and we stole out of the room leaving the two loving hearts alone with their God
+No I replied but Mina wants to see Dr Van Helsing at once
+Ask me nothings as yet
+She is the Czarina Catherine and she sail from Doolittle's Wharf for Varna and thence on to other parts and up the Danube
+Do you remember Art when we had the pack after us at Tobolsk
+You must take me with you
+It would comfort me my husband
+You friend Arthur go to the train and get the tickets and arrange that all be ready for us to go in the morning
+There is a gleam of light I can feel the air blowing upon me
+This was corroborated by his landlord who had received by messenger the key of the house together with the rent due in English money
+My surmise is this that in London the Count decided to get back to his castle by water as the most safe and secret way
+She rose obedient but when she have made a step she stopped and stood as one stricken
+Then I braced myself again to my horrid task and found by wrenching away tomb tops one other of the sisters the other dark one
+One was my Jonathan's raised in a high key of passion the other Mr Morris strong resolute tone of quiet command
+
+# The Call of the Wild â€" Jack London (1903)
+These men wanted dogs and the dogs they wanted were heavy dogs with strong muscles by which to toil and furry coats to protect them from the frost
+And with the exception of a solitary man no one saw them arrive at the little flag station known as College Park
+The next he knew he was dimly aware that his tongue was hurting and that he was being jolted along in some kind of a conveyance
+His hand was wrapped in a bloody handkerchief and the right trouser leg was ripped from knee to ankle
+What did they want with him these strange men
+Whereupon he lay down sullenly and allowed the crate to be lifted into a wagon
+He was glad for one thing the rope was off his neck
+You ain't going to take him out now
+He whirled over fetching the ground on his back and side
+But the man shifting the club from right to left coolly caught him by the under jaw at the same time wrenching downward and backward
+Be a good dog and all'll go well and the goose hang high
+Also he saw one dog that would neither conciliate nor obey finally killed in the struggle for mastery
+All was confusion and action and every moment life and limb were in peril
+Buck did not comprehend that silent intentness nor the eager way with which they were licking their chops
+Finally an idea came to him
+Something wriggled under his feet
+Buck was glad to be gone and though the work was hard he found he did not particularly despise it
+Yet the other dogs because they weighed less and were born to the life received a pound only of the fish and managed to keep in good condition
+This first theft marked Buck as fit to survive in the hostile Northland environment
+In short the things he did were done because it was easier to do them than not to do them
+In this manner had fought forgotten ancestors
+He was not prone to rashness and precipitate action and in the bitter hatred between him and Spitz he betrayed no impatience shunned all offensive acts
+The team dogs were swept back against the cliff at the first onset
+With four hundred miles of trail still between him and Dawson he could ill afford to have madness break out among his dogs
+The usual fire was necessary to save them
+He was preeminently cunning and could bide his time with a patience that was nothing less than primitive
+Several things favored him in this
+And leap by leap like some pale frost wraith the snowshoe rabbit flashed on ahead
+Twice his teeth clipped together like the steel jaws of a trap as he backed away for better footing with lean and lifting lips that writhed and snarled
+Then he warmed up and enveloped Spitz in a whirlwind of rushes
+He could see them beyond Spitz and to either side half crouching for the spring their eyes fixed upon him
+Perrault took a hand
+The trail was in excellent condition well packed and hard and there was no new fallen snow with which to contend
+Then while some broke camp others harnessed the dogs and they were under way an hour or so before the darkness fell which gave warning of dawn
+He was all but naked a ragged and fire scorched skin hanging part way down his back but on his body there was much hair
+The dogs were tired the drivers grumbling and to make matters worse it snowed every day
+Once out of the harness and down he did not get on his feet again till harness up time in the morning
+Then he fell and lay where he fell howling lugubriously as the long train of sleds churned by
+So he was harnessed in again and proudly he pulled as of old though more than once he cried out involuntarily from the bite of his inward hurt
+Here the train was halted
+No spring or rebound was left in them
+Dis is de las
+There was a great deal of effort about their manner but no businesslike method
+Oh that's all right that's all right the man hastened meekly to say
+Now you must promise you won't be harsh with them for the rest of the trip or I won't go a step
+You're driving our dogs and you do what you think best with them
+A third time the attempt was made but this time following the advice Hal broke out the runners which had been frozen to the snow
+He tripped and was pulled off his feet
+Three were short haired pointers one was a Newfoundland and the other two were mongrels of indeterminate breed
+But Charles and Hal did not know this
+They were slack in all things without order or discipline
+Then came the underfeeding
+To quarrel was the one thing they were never too weary to do
+She let her legs go limp like a spoiled child and sat down on the trail
+And through it all Buck staggered along at the head of the team as in a nightmare
+They were not half living or quarter living
+The ghostly winter silence had given way to the great spring murmur of awakening life
+Squirrels were chattering birds singing and overhead honked the wildfowl driving up from the south in cunning wedges that split the air
+Charles sat down on a log to rest
+And they told you true John Thornton answered
+It was idle he knew to get between a fool and his folly while two or three fools more or less would not alter the scheme of things
+He lay quietly where he had fallen
+He had a vague feeling of impending doom
+He no longer felt anything though very faintly he could hear the impact of the club upon his body
+Thornton stood between him and Buck and evinced no intention of getting out of the way
+A few minutes later they pulled out from the bank and down the river
+They saw Charles turn and make one step to run back and then a whole section of ice give way and dogs and humans disappear
+Love genuine passionate love was his for the first time
+While he went wild with happiness when Thornton touched him or spoke to him he did not seek these tokens
+He alone among men could put a pack upon Buck's back in the summer travelling
+Do you know it sometimes makes me afraid
+A miners meeting called on the spot decided that the dog had sufficient provocation and Buck was discharged
+The suck of the water as it took the beginning of the last steep pitch was frightful and Thornton knew that the shore was impossible
+He staggered to his feet and fell down
+Strangling suffocating sometimes one uppermost and sometimes the other dragging over the jagged bottom smashing against rocks and snags they veered in to the bank
+Buck because of his record was the target for these men and Thornton was driven stoutly to defend him
+The enormousness of it appalled him
+The tables were deserted and the dealers and gamekeepers came forth to see the outcome of the wager and to lay odds
+Murmurs of admiration at his splendid appearance went up
+Thornton knelt down by Buck's side
+It was the answer in terms not of speech but of love
+The crackling turned into a snapping the sled pivoting and the runners slipping and grating several inches to the side
+Those who hurried up heard him cursing Buck and he cursed him long and fervently and softly and lovingly
+As though animated by a common impulse the onlookers drew back to a respectful distance nor were they again indiscreet enough to interrupt
+To Buck it was boundless delight this hunting fishing and indefinite wandering through strange places
+It caused him to feel a vague sweet gladness and he was aware of wild yearnings and stirrings for he knew not what
+But the wolf fled at sight of him
+After some time of this the wolf started off at an easy lope in a manner that plainly showed he was going somewhere
+Then he sat down pointed his nose upward and howled
+When Thornton passed a caressing hand along his back a snapping and crackling followed the hand each hair discharging its pent magnetism at the contact
+Never was there such a dog said John Thornton one day as the partners watched Buck marching out of camp
+He was in a savage temper and standing over six feet from the ground was as formidable an antagonist as even Buck could desire
+The life of only one member was demanded which was a remoter interest than their lives and in the end they were content to pay the toll
+For a day and a night he remained by the kill eating and sleeping turn and turn about
+A hundred yards farther on Buck came upon one of the sled dogs Thornton had bought in Dawson
+He did not pause to worry the victim but ripped in passing with the next bound tearing wide the throat of a second man
+He stood up listening and scenting
+They were awed so still and large he stood and a moment's pause fell till the boldest one leaped straight for him
+Some were lying down with heads raised and ears pricked forward others stood on their feet watching him and still others were lapping water from the pool
+The leaders lifted the yelp of the pack and sprang away into the woods
+
+# The Age of Innocence â€" Edith Wharton (1920)
+On a January evening of the early seventies Christine Nilsson was singing in Faust at the Academy of Music in New York
+The act was ending and there was a general stir in the box
+Archer paused a moment
+Some invincible repugnance to speak of such things to the strange foreign woman had checked the words on his lips
+Beaufort this is a rare favour
+Mrs Archer ignored the allusion to the ancestral cuisine and Mr Jackson continued with deliberation No she was not at the ball
+I hope there isn't a man among us who wouldn't have done the same in such a case
+One of your great grandfathers signed the Declaration and another was a general on Washington's staff and received General Burgoyne's sword after the battle of Saratoga
+Husband and wife looked at each other again
+She continued to consider him thoughtfully as if not to miss any shade of meaning in what he said Do you think then there is a limit
+He was puzzled by the tone in which she had summoned him he concluded that she was less simple than she seemed
+Those privileged to enter it shivered there and spoke of it as handsome
+No how kind they are
+How good of the Duke to think of me
+To shake off the question he began to talk of their own plans their future and Mrs Welland's insistence on a long engagement
+She thinks it the most beautiful setting she ever saw
+You know cousin Henry asked her to please you he persuaded cousin Louisa
+Strangers don't discriminate how should they
+They all named you
+Here are the letters sir
+I don't think that has anything to do with the case
+Granny would of course
+I don't know that the arts have a milieu here any of them they're more like a very thinly settled outskirt
+He waited a moment and cleared his throat
+But how much truth was behind it
+Very well I will do what you wish she said abruptly
+She looked down at the mother of pearl opera glass in her smoothly gloved hands and said after a pause What do you do while May is away
+There's only one way to do it to go into politics
+She ended with a conventional Yours sincerely and without any allusion to the date of her return
+After a pause she said with a just perceptible chill in her voice May asked you to take care of me
+But I can't feel unhappy when you're here
+Suddenly among them he lit on a small volume of verse which he had ordered because the name had attracted him The House of Life
+If only Newland could stay I should like it a thousand times better than New York
+She smiled dreamily upon the possibility but he perceived that to dream of it sufficed her
+You might so easily have made a mistake
+She's very happy at being among her own people again
+Oh my darling I leave you to find that out
+The young man saw at once that his hostess was not in the room then with surprise he discovered another lady standing by the fire
+The young man listened with considerable embarrassment
+It has made up to her for so many things
+Many cruel things have been believed of me she said
+There's your carriage said Archer
+Ah don't ask me what I thought
+It's too late for that sort of thing
+His arms were yearning up to her but she drew away and they remained facing each other divided by the distance that her words had created
+He turned away with a sense of utter weariness
+He threw back his head with a long laugh
+She turned to him with a triumphant smile and their hands clasped under her veil
+When they go to the theatre in old ball dresses and bare heads
+What on earth will they expect me to talk about
+Newland Archer standing on the verandah of the house looked curiously down upon this scene
+May Welland was just coming out of the tent
+The boat was gliding out on the receding tide
+Archer jumping down led his pair into the shed and after tying them to a post turned toward the house
+She's staying at the Parker House it must be horrible there in this weather
+He found his hat and stick and went forth into the street
+What were the conditions
+And you came out here to think the chance over
+Oh don't calculate he broke out give me the day
+Then she too stood up
+I haven't seen him for a long time
+Oh is there no reason
+Well it is all isn't it
+But if you'll come along I'll extricate you and you must really lunch with me you know
+The proposals you brought
+Thank you Archer said again as their hands met
+I don't think Ellen cares for society but nobody knows exactly what she does care for May continued as if she had been groping for something noncommittal
+Well no doubt you know
+Wall Street the next day had more reassuring reports of Beaufort's situation
+It was after twelve o'clock when this laborious vehicle dropped him at old Catherine's
+Jasper and the pantry boy are both out with notes and telegrams
+But in spite of her firm tone old Catherine did not wholly recover her former attitude toward life
+Then it's not postponed
+What a pretty carriage
+The answer checked the pleading on Archer's lips it seemed to come from depths of experience beyond his reach
+And you'll sit beside me and we'll look not at visions but at realities
+He sat silent dazed with inarticulate pain
+I was waiting at Granny's and Ellen came alone and said she had dropped you on the way because you had to rush off on business
+After he had leaned out into the darkness for a few minutes he heard her say Newland
+It bores Granny to see the same people too often
+It would have spared me all this worry
+He knew the exact figure of the small income which her husband had allowed her at their separation
+There were even rumours that he had left New York with Fanny Ring but Mrs Beaufort's attitude made the report seem improbable
+As it drove off she leaned forward and he thought she waved her hand in the obscurity
+The step drew nearer and a guardian in a braided cap walked listlessly through the room like a ghost stalking through a necropolis
+She raised her troubled eyes to his
+Is Mrs Archer in
+The open door had closed between them again
+Still to have kept her grandmother's carriage at a defaulter's door
+Oh no she exclaimed with a momentary flush as she took off her cloak
+It wasn't then that she told you
+Everything was in short as it should be on the approach of so considerable an event
+In fact I'm bound to say she's been treated pretty handsomely all round
+I never he declared with intensity was more nearly frozen than once in April in the train between Calais and Paris
+It did go off beautifully didn't it
+But that was a fortnight ago wasn't it
+How far they were from the days when the legs of the brass buttoned messenger boy had been New York's only means of quick communication
+Dallas's hand came down cheerily on his shoulder
+But Archer meeting his eyes saw the filial light under their banter
+I believe I'll sit there a moment he said

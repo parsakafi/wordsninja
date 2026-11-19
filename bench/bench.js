@@ -19,9 +19,8 @@ function measure(label, fn, runs = 3) {
         if (elapsed < best) best = elapsed;
     }
 
-    const chars = typeof result === 'string' ? result.length : result.length;
     console.log(
-        `${label.padEnd(28)} ${best.toFixed(1).padStart(7)} ms   (${chars} tokens)`
+        `${label.padEnd(28)} ${best.toFixed(1).padStart(7)} ms   (${result.length} tokens)`
     );
     return result;
 }

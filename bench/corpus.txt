@@ -1,0 +1,207 @@
+# Ground-truth corpus for bench/accuracy.js.
+# One sentence per line, words separated by single spaces. Lines starting with
+# `#` are ignored. The harness removes the spaces and scores the segmentation
+# against the words on the line, so every word here should be understandable
+# English and should exist in words-en.json.
+you need to learn from your mistakes
+the quick brown fox jumps over the lazy dog
+she sells sea shells by the sea shore
+i love you more than words can say
+we should meet at the station after work
+he opened the window and looked outside
+the children are playing in the garden
+please send me the report before friday
+my brother works in a bank downtown
+the weather is getting colder every day
+i would like a cup of tea please
+they walked along the river until sunset
+this book is much better than the film
+we need to talk about the plan
+she bought a new dress for the party
+the train leaves at seven in the morning
+i cannot find my keys anywhere
+he forgot to bring his wallet
+the dog is sleeping under the table
+our team won the game last night
+i think you are right about that
+the meeting starts in ten minutes
+she painted the wall a bright yellow
+we stayed at a small hotel near the beach
+he has been working here for years
+the food at this place is really good
+i will call you when i get home
+they are building a new school
+the road was closed because of the snow
+my mother makes the best cake
+please close the door when you leave
+i have never seen anything like it
+the students are preparing for the exam
+he plays the guitar every evening
+we watched the sun set over the hills
+the shop is closed on sunday
+she speaks three languages fluently
+i need to buy some milk and bread
+the children were excited about the trip
+he told me a funny story
+the garden looks beautiful in spring
+we should leave before the traffic gets bad
+i forgot my password again
+the coffee is too hot to drink
+they moved to a bigger house last year
+she is learning to play the piano
+the plane landed an hour late
+i hope the weather improves tomorrow
+he always arrives early for meetings
+the museum is free on the first monday
+we ordered pizza for dinner
+my phone battery is almost dead
+the teacher explained the lesson twice
+i would rather stay at home tonight
+they finished the project ahead of schedule
+the river flows through the center of town
+she wore a red coat and black boots
+we need more time to finish this work
+he broke his arm playing football
+the baby is finally asleep
+i cannot remember his name
+the store opens early on weekdays
+we planted flowers along the fence
+the movie was long but interesting
+she answered every question correctly
+he is looking for a new job
+the price of food keeps going up
+we spent the afternoon at the park
+the letter arrived three days later
+i cleaned the kitchen this morning
+they argued about the same thing again
+the cat knocked the glass off the table
+she smiled and said nothing
+he studies english every day
+the bus was crowded this morning
+i will finish the report by monday
+we should invite them to dinner
+the air is fresh after the rain
+he reads the newspaper every morning
+the keys are on the kitchen counter
+she lost her phone on the train
+we visited an old castle in the north
+the sky turned dark before the storm
+i bought a present for my sister
+the restaurant was full when we arrived
+he speaks softly but clearly
+the children shared their toys
+we walked home in the dark
+she sent me a long message
+the doctor said i should rest
+i left my umbrella at the office
+they planted trees along the street
+the concert starts at eight
+he drives to work every day
+the water in the lake is cold
+she asked me an easy question
+we need a bigger table
+he painted the fence white
+i want to learn a new language
+the shop sells fresh vegetables
+we met at a coffee shop near the bridge
+she wrote a letter to her friend
+the road to the village is narrow
+he carried the bags upstairs
+the fire kept us warm all night
+i missed the bus by one minute
+they cleaned the whole house
+the game ended in a draw
+she found a coin in her pocket
+we listened to music until midnight
+the old man walks slowly
+i need a better chair for my desk
+the tickets were cheaper online
+he lost his keys in the snow
+the children built a snowman
+we watched the birds from the window
+the kitchen smelled of fresh bread
+she always keeps her promises
+i wrote the number on a piece of paper
+the car needs new tires
+he answered the phone on the first ring
+we can meet at the library
+the mountain was covered in snow
+she forgot her umbrella again
+i cannot decide which one to take
+the room was quiet and warm
+he sent the files this morning
+we should check the schedule
+the boat sailed across the lake
+i heard a strange noise outside
+the baby smiled at the stranger
+she found the answer in a book
+he runs five kilometers every morning
+the window was open all night
+we need to fix the roof
+the garden is full of flowers
+i slept for eight hours
+they arrived just before dinner
+the teacher gave us more time
+she closed her eyes and listened
+the town has a small market
+he fixed the broken chair
+we walked along the beach at dawn
+the coffee shop closes at six
+i keep my notes in a notebook
+the dogs barked at the mailman
+she chose the blue dress
+we should hurry before it rains
+the letter was written in pencil
+he dropped the box on the floor
+the children learned a new song
+i hope you can come with us
+she put the flowers in a vase
+the lamp on my desk is broken
+we finished the work before noon
+the road runs along the river
+he looked tired after the trip
+i wanted to say something nice
+the shop was busy all morning
+she painted a picture of the sea
+we should try that new restaurant
+the clock on the wall is slow
+i need to charge my phone
+the grass is wet with dew
+he told the truth about the accident
+the guests arrived one by one
+we watched the smoke rise from the fire
+she packed her bag for the trip
+the street lights came on at dusk
+i drink tea instead of coffee
+the meeting was shorter than expected
+he collects old coins and stamps
+the boy ran to catch the ball
+we stayed inside during the storm
+the flowers need more water
+i forgot to lock the door
+she sang a song i knew well
+the table is set for dinner
+he works hard and never complains
+the bus stopped near the market
+i finished the book in two days
+they promised to visit soon
+the path leads to a quiet lake
+she keeps her garden very tidy
+he apologized for being late
+the light in the hall was dim
+we shared the last piece of cake
+the child drew a picture of a house
+i should call my father tonight
+the wind blew the leaves away
+the sand on the beach is warm
+please sit next to me
+he sat on the old chair
+we walked onto the stage
+they are alike in every way
+reduce your sugar intake
+thereby we can save more time
+he did not inform us about the change
+she sat by the window
+sit down and rest for a while
+the intake of salt should be low
+did you see the sand and the sea

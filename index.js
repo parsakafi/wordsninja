@@ -31,6 +31,7 @@ const COMBINING_MARKS_RE = /\p{M}+/gu;
 const NON_ASCII_RE = /[^\x00-\x7f]/;
 const SIMPLE_WORD_RE = /^[a-z0-9']+$/;
 const DIGITS_RE = /^\p{N}+$/u;
+const LETTER_RE = /^\p{L}$/u;
 const CONTRACTION_SUFFIXES = new Set(["'s", "'re", "'ll", "'ve", "'d", "'m", "'t"]);
 const CONTRACTION_START_RE = /[\p{L}\p{N}]$/u;
 
@@ -61,9 +62,11 @@ function normalizeWordKey(word) {
 /**
  * Build an immutable cost table from a list of words.
  * @param {string[]} words Frequency ordered list of words (most common first)
+ * @param {boolean} [skipLoneLetters=false] Ignore one-letter words other than
+ *   `a` and `i`. Used for the bundled list, which contains every letter.
  * @returns {{costs: Map<string, number>, maxLength: number, minCost: number}}
  */
-function buildDictionary(words) {
+function buildDictionary(words, skipLoneLetters = false) {
     if (!Array.isArray(words)) {
         throw new TypeError('wordsninja: the dictionary must be an array of strings');
     }
@@ -81,6 +84,19 @@ function buildDictionary(words) {
 
         let word = SIMPLE_WORD_RE.test(raw) ? raw : raw.trim().toLowerCase();
         if (!word || costs.has(word)) continue;
+
+        // The bundled list contains every letter as a word. Only `a` and `i`
+        // are English one-letter words, so the rest are left to the
+        // unknown-text path.
+        if (
+            skipLoneLetters &&
+            word.length === 1 &&
+            word !== 'a' &&
+            word !== 'i' &&
+            LETTER_RE.test(word)
+        ) {
+            continue;
+        }
 
         const cost = Math.log((i + 1) * Math.max(logN, 1));
         costs.set(word, cost);
@@ -111,7 +127,7 @@ let sharedDictionary = null;
  */
 function getSharedDictionary() {
     if (sharedDictionary === null) {
-        sharedDictionary = buildDictionary(require('./words-en.json'));
+        sharedDictionary = buildDictionary(require('./words-en.json'), true);
     }
     return sharedDictionary;
 }
@@ -155,8 +171,8 @@ function loadCustomDictionary(dictionary) {
 }
 
 /**
- * @param {string} input
- * @param {number} offset Absolute index of `piece` inside `input`
+ * @param {string} piece
+ * @param {number} offset Absolute index of `piece` in the original input string
  * @param {{normalizeAccents: boolean}} options
  * @returns {{norm: string, starts: number[], ends: number[]}}
  */
@@ -289,8 +305,9 @@ function normalizeOptions(options) {
 }
 
 /**
- * Merge adjacent tokens that belong together numerically (`1|2` -> `12`) or
- * grammatically (`wang|'s` -> `wang's`).
+ * Merge adjacent tokens that belong together numerically (`116|116` ->
+ * `116116`) or grammatically (`wang|'s` -> `wang's`). A separator between two
+ * tokens ends the merge, so `1 2 3` and `wang 's` stay split.
  * @param {string} input
  * @param {Array<{start: number, end: number}>} tokens
  * @param {object} options
@@ -441,16 +458,19 @@ class WordsNinja {
      * @param {boolean} [options.normalizeAccents=true] Strip diacritics before
      *   matching (`café` matches `cafe`) while keeping the original text in the
      *   result
-     * @param {boolean} [options.mergeNumbers=true] Merge adjacent digits
-     *   (`1 2 3` -> `123`)
+     * @param {boolean} [options.mergeNumbers=true] Merge adjacent digit tokens
+     *   (`call116116now` -> `['call', '116116', 'now']`). Merging never crosses
+     *   a separator, so `1 2 3` stays three tokens
      * @param {boolean} [options.mergeContractions=true] Attach `'s`, `'re`,
-     *   `'ll`, `'ve`, `'d`, `'m`, `'t` to the preceding word
+     *   `'ll`, `'ve`, `'d`, `'m`, `'t` to the preceding word (`wang'sbook` ->
+     *   `["wang's", 'book']`); `wang 's` stays two tokens
      * @param {number} [options.maxWordLength=64] Maximum length of a dictionary
      *   word considered at each position. Lower values are faster; words longer
      *   than this are treated as unknown.
      * @param {number|null} [options.unknownWordPenalty=10] Cost per unmatched
      *   character. Unmatched characters are kept as tokens. Set to `null` to
-     *   drop characters that cannot be segmented.
+     *   drop characters that cannot be segmented. In the bundled dictionary, a
+     *   lone letter other than `a` or `i` counts as unmatched text.
      * @returns {string[]|string|Array<{word: string, start: number, end: number}>}
      */
     splitSentence(string, options) {
@@ -506,12 +526,12 @@ class WordsNinja {
     }
 
     /**
-     * Run the Viterbi search for a single alphanumeric run and append its
-     * tokens (in source order) to `out`.
+     * Run the Viterbi search for a single run of letters, digits and
+     * apostrophes and append its tokens (in source order) to `out`.
      * @private
      */
-    _segmentRun(piece, absoluteStart, absoluteEnd, settings, maxWordLength, out) {
-        const {norm, starts, ends} = normalizePiece(piece, absoluteStart, settings);
+    _segmentRun(text, absoluteStart, absoluteEnd, settings, maxWordLength, out) {
+        const {norm, starts, ends} = normalizePiece(text, absoluteStart, settings);
         const length = norm.length;
         if (length === 0) return;
 
@@ -527,10 +547,10 @@ class WordsNinja {
             const limit = Math.min(maxWordLength, i);
 
             for (let k = 1; k <= limit; k++) {
-                const cost = this._cost(norm.slice(i - k, i));
-                if (cost === undefined) continue;
+                const wordCost = this._cost(norm.slice(i - k, i));
+                if (wordCost === undefined) continue;
 
-                const total = best[i - k] + cost;
+                const total = best[i - k] + wordCost;
                 if (total < best[i]) {
                     best[i] = total;
                     back[i] = k;
@@ -568,7 +588,13 @@ class WordsNinja {
 
                 // Adjacent digits are left separate here so that
                 // `mergeNumbers` stays in control of the final result.
-                if (unknown && previous && previous.unknown && previous.start === end && !(previous.digits && digits)) {
+                if (
+                    unknown &&
+                    previous &&
+                    previous.unknown &&
+                    previous.start === end &&
+                    !(previous.digits && digits)
+                ) {
                     previous.start = start;
                     previous.digits = previous.digits && digits;
                 } else {

@@ -19,6 +19,34 @@ describe('segmentation', () => {
         ]);
     });
 
+    it('prefers a whole word over cheaper fragments', () => {
+        const ninja = new WordsNinja();
+
+        for (const word of ['a', 'i', 'sand', 'sat', 'sit', 'sofa', 'sofas']) {
+            assert.deepEqual(ninja.splitSentence(word), [word]);
+        }
+    });
+
+    it('keeps the boundary between short words', () => {
+        const ninja = new WordsNinja();
+
+        assert.deepEqual(ninja.splitSentence('andyounevertoldeachotheranything'), [
+            'and',
+            'you',
+            'never',
+            'told',
+            'each',
+            'other',
+            'anything',
+        ]);
+        assert.deepEqual(ninja.splitSentence('theadventuresofalice'), [
+            'the',
+            'adventures',
+            'of',
+            'alice',
+        ]);
+    });
+
     it('loads the dictionary lazily', () => {
         const ninja = new WordsNinja();
         assert.equal(ninja.ready, false);
@@ -74,6 +102,14 @@ describe('segmentation', () => {
             new WordsNinja().splitSentence('call123now', {mergeNumbers: false}),
             ['call', '1', '2', '3', 'now']
         );
+    });
+
+    it('merges only tokens that touch', () => {
+        const ninja = new WordsNinja();
+        assert.deepEqual(ninja.splitSentence('call116116now'), ['call', '116116', 'now']);
+        assert.deepEqual(ninja.splitSentence('abc123123'), ['abc', '123123']);
+        assert.deepEqual(ninja.splitSentence('1 2 3'), ['1', '2', '3']);
+        assert.deepEqual(ninja.splitSentence("wang 's"), ['wang', "'s"]);
     });
 
     it('merges possessives and contractions by default', () => {
@@ -214,6 +250,22 @@ describe('options', () => {
 
         assert.deepEqual(custom.splitSentence('foobar'), ['foo', 'bar']);
         assert.deepEqual(custom.splitSentence('foobar', {unknownWordPenalty: null}), ['foo']);
+    });
+
+    it('treats lone letters as unmatched text', () => {
+        const ninja = new WordsNinja();
+
+        for (const unknownWordPenalty of [100, null]) {
+            assert.deepEqual(ninja.splitSentence('sand', {unknownWordPenalty}), ['sand']);
+        }
+
+        assert.deepEqual(ninja.splitSentence('x', {unknownWordPenalty: null}), []);
+
+        const custom = new WordsNinja({dictionary: ['x']});
+        assert.deepEqual(custom.splitSentence('x'), ['x']);
+
+        const added = new WordsNinja().addWords('x');
+        assert.deepEqual(added.splitSentence('x'), ['x']);
     });
 
     it('validates options', () => {

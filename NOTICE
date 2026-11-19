@@ -8,8 +8,8 @@ shipped with the `wordninja` Python package:
     https://github.com/keredson/wordninja
 
 `wordninja` is distributed under the MIT License. The list has been converted
-from a newline separated text file to JSON and de-duplicated; the words and
-their frequency order are unchanged.
+from a newline separated text file to JSON and de-duplicated; the remaining
+words keep their original frequency order.
 
 The segmentation algorithm follows the approach described in:
 

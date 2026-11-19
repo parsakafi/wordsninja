@@ -24,11 +24,16 @@ declare namespace WordsNinja {
          * the original text in the result. Defaults to `true`.
          */
         normalizeAccents?: boolean;
-        /** Merge adjacent digits (`1 2 3` -> `123`). Defaults to `true`. */
+        /**
+         * Merge adjacent digit tokens (`call116116now` ->
+         * `['call', '116116', 'now']`). Merging never crosses a separator, so
+         * `1 2 3` stays three tokens. Defaults to `true`.
+         */
         mergeNumbers?: boolean;
         /**
          * Attach `'s`, `'re`, `'ll`, `'ve`, `'d`, `'m` and `'t` to the preceding
-         * word. Defaults to `true`.
+         * word (`wang'sbook` -> `["wang's", 'book']`); `wang 's` stays two
+         * tokens. Defaults to `true`.
          */
         mergeContractions?: boolean;
         /**
@@ -39,8 +44,9 @@ declare namespace WordsNinja {
         maxWordLength?: number;
         /**
          * Cost per unmatched character. Unmatched characters are kept as tokens.
-         * Set to `null` to drop characters that cannot be segmented.
-         * Defaults to `10`.
+         * Set to `null` to drop characters that cannot be segmented. In the
+         * bundled dictionary, a lone letter other than `a` or `i` counts as
+         * unmatched text. Defaults to `10`.
          */
         unknownWordPenalty?: number | null;
     }

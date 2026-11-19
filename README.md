@@ -18,7 +18,7 @@ ninja.splitSentence('youneedtolearnfromyourmistakes');
 ## Why WordsNinja
 
 - **Zero dependencies** and a small API surface.
-- **~3× faster than v1** — a dynamic-programming search over a frequency-ordered dictionary, backed by a `Map` and typed
+- **~2.8× faster than v1** — a dynamic-programming search over a frequency-ordered dictionary, backed by a `Map` and typed
   arrays.
 - **Keeps your text** — case is preserved and characters the dictionary cannot cover are returned instead of silently
   dropped.
@@ -119,10 +119,10 @@ Splits `input` into words. Throws a `TypeError` if `input` is not a string.
 | `joinWords`             | `boolean`        | `false` | Return a space separated string instead of an array. Takes precedence over `withOffsets`.                                         |
 | `withOffsets`           | `boolean`        | `false` | Return `{ word, start, end }` objects. Offsets are UTF-16 indices into `input`.                                                   |
 | `normalizeAccents`      | `boolean`        | `true`  | Strip diacritics before matching (`café` matches `cafe`) while returning the original text.                                       |
-| `mergeNumbers`          | `boolean`        | `true`  | Merge adjacent digits: `1 2 3` → `123`.                                                                                           |
-| `mergeContractions`     | `boolean`        | `true`  | Attach `'s`, `'re`, `'ll`, `'ve`, `'d`, `'m`, `'t` to the preceding word: `wang 's` → `wang's`.                                   |
+| `mergeNumbers`          | `boolean`        | `true`  | Merge adjacent digit tokens: `call116116now` → `['call', '116116', 'now']`. Merging never crosses a separator, so `1 2 3` stays three tokens. |
+| `mergeContractions`     | `boolean`        | `true`  | Attach `'s`, `'re`, `'ll`, `'ve`, `'d`, `'m`, `'t` to the preceding word: `wang'sbook` → `["wang's", 'book']`. Merging never crosses a separator, so `wang 's` stays two tokens. |
 | `maxWordLength`         | `number`         | `64`    | Maximum length of a dictionary word considered at each position. Lower values are faster; longer words are treated as unknown.    |
-| `unknownWordPenalty`    | `number \| null` | `10`    | Cost per unmatched character. Unmatched characters are kept as tokens. Set to `null` to drop characters that cannot be segmented. |
+| `unknownWordPenalty`    | `number \| null` | `10`    | Cost per unmatched character. Unmatched characters are kept as tokens. Set to `null` to drop characters that cannot be segmented. In the bundled dictionary, a lone letter other than `a` or `i` counts as unmatched text. |
 
 #### Offsets
 
@@ -171,6 +171,10 @@ ninja.splitSentence('helloWorldHowAreYou', {
   `unknownWordPenalty: null` if you would rather drop them.
 - **Numbers and possessives are merged by default.** `call123now` → `['call', '123', 'now']`, `wang'sbook` →
   `["wang's", 'book']`. Disable with `mergeNumbers: false` / `mergeContractions: false`.
+- **Whole words win over cheap fragments.** The bundled word list contains every letter as an entry, so a run could be
+  split into pieces cheaper than the word they spell (`sand` → `s and`). The bundled dictionary ignores one-letter
+  entries other than `a` and `i`; those letters are treated as unmatched text, so `sand` stays `sand`. Custom
+  dictionaries keep their one-letter entries.
 - **Ambiguous input is a guess.** `thequickbrownfox` can only be segmented by cost; some strings have more than one
   plausible split.
 - **Long words are capped.** `maxWordLength` bounds the candidate window per position. Words longer than the cap are
@@ -215,7 +219,7 @@ Offsets, custom words and every option work the same way in the browser.
 
 ## Migrating from v1
 
-v2.0.0 is a breaking release:
+v2 is a breaking release compared with v1:
 
 - **`loadDictionary()` is optional.** The dictionary loads on first use. It still exists, now resolves with the
   instance, and is idempotent.
@@ -225,7 +229,8 @@ v2.0.0 is a breaking release:
 - **Unknown text is no longer dropped silently.** v1 returned `[]` for non-Latin input and removed accents as
   separators; v2 keeps unmatched text as tokens.
 - **Accents are normalized by default.** `cafélatte` now yields `['café', 'latte']` instead of `['caf', 'latte']`.
-- **`addWords()` returns the instance** for chaining and rejects whitespace, empty and non-string entries.
+- **`addWords()` returns the instance** for chaining, ignores empty entries, and rejects non-strings or words
+  containing whitespace.
 - **Clear errors instead of hangs.** Using the API before the dictionary was loaded used to loop until
   `RangeError: Invalid array length`; it now initializes lazily and validates input.
 - **Node.js 18+**, TypeScript types, and ESM are supported.
@@ -234,33 +239,50 @@ v2.0.0 is a breaking release:
 
 ## Performance
 
-Measured with `npm run bench` on a desktop machine (Node 22):
+Measured on a desktop machine (Node 22); split workloads are best of five, dictionary load is a cold start:
 
-| Workload          | v1                 | v2                        |
-|-------------------|--------------------|---------------------------|
-| 4,000 characters  | ~100 ms            | **~30 ms**                |
-| 20,000 characters | ~390 ms            | **~135 ms**               |
-| Dictionary load   | ~35 ms (at import) | **~50 ms** (on first use) |
-| Heap after load   | ~30 MB             | **~25 MB**                |
+| Workload          | v1                      | v2                        |
+|-------------------|-------------------------|---------------------------|
+| 4,500 characters  | ~85 ms                  | **~30 ms**                |
+| 21,000 characters | ~388 ms                 | **~137 ms**               |
+| Dictionary load   | ~83 ms (import + build) | **~46 ms** (first use)    |
 
 v2 also supports `withOffsets` at no measurable extra cost. Numbers vary by machine; run the benchmark on your hardware.
+
+### Accuracy
+
+`npm run bench:accuracy` removes the spaces from two corpora and scores the result against the intended words:
+
+| Corpus                       | Sentences | Exact       | Precision | Recall | F1    |
+|------------------------------|-----------|-------------|-----------|--------|-------|
+| `bench/corpus.txt` (tuned)   | 202       | 176 (87.1%) | 96.8%     | 95.6%  | 96.2% |
+| `bench/prose.txt` (held out) | 600       | 474 (79.0%) | 97.4%     | 96.6%  | 97.0% |
+
+`prose.txt` holds 600 sentences from six public-domain novels; it is kept apart from the corpus used while tuning, so a
+change cannot raise the tuned score by over-fitting. CI enforces a floor on both. Against 2.0.0, 13 more sentences are
+exact (3 tuned and 10 prose) and none regressed.
+
+Most remaining misses are cost ties a unigram model cannot resolve without context: a longer dictionary word wins over
+two shorter ones (`every day` → `everyday`, `me an` → `mean`), or two two-word splits compete (`i slept` → `is lept`).
 
 ## Development
 
 ```bash
 npm test                 # node:test suite
 npm run test:watch       # watch mode
-npm run bench            # segmentation benchmark
+npm run bench            # segmentation speed benchmark
+npm run bench:accuracy   # accuracy against bench/corpus.txt and bench/prose.txt
 npm run build:dictionary # validate/de-duplicate words-en.json
 ```
 
-CI runs the test suite on Node.js 18, 20, 22 and 24, and verifies the published artifact with `npm pack --dry-run`.
+CI runs the test suite on Node.js 18, 20, 22 and 24, verifies the published artifact with `npm pack --dry-run`, and
+fails if the accuracy benchmark drops below its floor.
 
 ## Releasing
 
 1. Update the version and the changelog/README notes.
 2. `npm test`
-3. Tag and push: `git tag v2.0.0 && git push origin v2.0.0`
+3. Tag and push: `git tag v2.0.1 && git push origin v2.0.1`
 
 The `Release` workflow checks that the tag matches `package.json`, runs the tests, and publishes with provenance through
 npm trusted publishing. If you publish manually, use `npm publish --provenance`.
@@ -272,7 +294,7 @@ WordsNinja is a dictionary-based segmenter, not a language model:
 - The bundled list is English-focused. Non-English text is preserved as unknown tokens, not segmented.
 - Segmentation is a best guess for ambiguous input.
 - Punctuation is treated as a boundary, not preserved.
-- The dictionary costs ~25 MB of heap once loaded; it is shared by all instances in a process.
+- The dictionary costs ~30 MB of heap once loaded; it is shared by all instances in a process.
 
 ## License
 

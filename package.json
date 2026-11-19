@@ -1,6 +1,6 @@
 {
   "name": "wordsninja",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Split an English string that has no spaces into words. Zero dependencies, offset-aware, with custom dictionaries and TypeScript types.",
   "main": "index.js",
   "module": "index.mjs",
@@ -25,7 +25,8 @@
     "index.d.ts",
     "index.d.mts",
     "words-en.json",
-    "NOTICE"
+    "NOTICE",
+    "CHANGELOG.md"
   ],
   "sideEffects": false,
   "engines": {
@@ -36,6 +37,7 @@
     "test:watch": "node --test --watch test/wordsninja.test.js test/robustness.test.js",
     "build:dictionary": "node scripts/build-dictionary.js",
     "bench": "node bench/bench.js",
+    "bench:accuracy": "node bench/accuracy.js",
     "prepublishOnly": "npm test"
   },
   "keywords": [
